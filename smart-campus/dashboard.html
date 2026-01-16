@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<h2>Smart Campus Dashboard</h2>
+
+<div class="card" id="schedule">Loading schedule...</div>
+<div class="card" id="notices">Loading notices...</div>
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+<div class="card">
+  <h3>Campus Assistant 🤖</h3>
+  <input id="chatInput" placeholder="Ask about classes, exams..." />
+  <button onclick="chat()">Ask</button>
+  <p id="chatReply"></p>
+</div>
+
+<script src="../js/schedule.js"></script>
+<script src="../js/notices.js"></script>
+<script src="../js/chatbot.js"></script>
+<script src="../js/theme.js"></script>
+
+</body>
+</html>
