@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance</title>
+  <link rel="stylesheet" href="/css/attendance.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>📋 Student Attendance</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="attendanceBody">
+      <tr>
+        <td>101</td>
+        <td>Sohail Khan</td>
+        <td>
+          <button class="present" onclick="markAttendance(101, 'Present')">Present</button>
+          <button class="absent" onclick="markAttendance(101, 'Absent')">Absent</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>102</td>
+        <td>Ali Ahmed</td>
+        <td>
+          <button class="present" onclick="markAttendance(102, 'Present')">Present</button>
+          <button class="absent" onclick="markAttendance(102, 'Absent')">Absent</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p id="message"></p>
+</div>
+
+<script src="/js/attendance.js"></script>
+</body>
+</html>

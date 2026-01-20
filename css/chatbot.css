@@ -8,12 +8,12 @@
 
 /* Circle button */
 .chatbot-toggle {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: #1e90ff;
+  background: white;
   color: #fff;
-  font-size: 28px;
+  font-size: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,4 +57,49 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   CHATBOT – DARK MODE
+   ========================= */
+
+body.dark .chatbot-toggle {
+  background: #2d7ef7;
+  color: #58a6ff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+body.dark .chatbot-box {
+  background:  #2d7ef7;
+  color:  #2d7ef7;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
+}
+
+/* Input field */
+body.dark .chatbot-box input {
+  background:  #2d7ef7;
+  color:  #2d7ef7;
+  border: 1px solid #30363d;
+}
+
+body.dark .chatbot-box input::placeholder {
+  color: #9ba3b4;
+}
+
+/* Button */
+body.dark .chatbot-box button {
+  background: #238636; /* GitHub green */
+  color:  #2d7ef7;
+}
+
+body.dark .chatbot-box button:hover {
+  background: #2ea043;
+}
+
+/* Smooth transition */
+.chatbot-toggle,
+.chatbot-box,
+.chatbot-box input,
+.chatbot-box button {
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }

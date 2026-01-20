@@ -5,24 +5,111 @@
   <link rel="stylesheet" href="/css/dashboard.css">
   <link rel="stylesheet" href="/css/chatbot.css">
 </head>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 <body>
 
   <!-- TOP BANNER -->
   <div class="campus-banner">
     <h1>Smart <span>Campus</span></h1>
     <p>Complete Campus Management System</p>
-    <img src="/images/IMAGE2.png" alt="">
+    <button class="scroll-down-btn" onclick="scrollToDashboard()">
+  ↓
+</button>
+ </div>
+
+
+<!-- HAMBURGER BUTTON (top-left) -->
+<button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+  ☰
+</button>
+
+<!-- OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-top">
+    <img src="/images/profile.png" alt="Profile" class="profile-pic" />
+    <div class="profile-name">Sohail</div>
   </div>
 
+  <nav class="sidebar-menu">
+    
+    <a href="#" class="sidebar-item">Attendance</a>
+    <a href="#" class="sidebar-item">Courses</a>
+    <a href="#" class="sidebar-item">Exams</a>
+    <a href="#" class="sidebar-item">Library</a>
+    <a href="#" class="sidebar-item">Notices</a>
+    <a href="#" class="sidebar-item">Fees</a>
+    <a href="#" class="sidebar-item">Timetable</a>
+    <a href="#" class="sidebar-item">Settings</a>
+    <a href="#" class="sidebar-item danger">Logout</a>
+    <button class="sidebar-item toggle-btn" id="darkModeToggle" type="button">
+  🌙 Dark Mode
+</button>
+
+  </nav>
+</aside>
+
+
+
+
   <!-- DASHBOARD CARDS -->
-  <div class="dashboard-cards">
-    <div class="card">Profile</div>
-    <div class="card">Attendance</div>
-    <div class="card">Courses</div>
-    <div class="card">Exams</div>
-    <div class="card">Fees</div>
-    <div class="card">Settings</div>
+  
+    <div class="dashboard-cards">
+  <div class="card">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
   </div>
+
+ <a href="attendance.html" class="card-link">
+  <div class="card">
+    <i class="fa-solid fa-clipboard-check"></i>
+    <span>Attendance</span>
+  </div>
+</a>
+
+
+
+  <div class="card">
+    <i class="fa-solid fa-book-open"></i>
+    <span>Courses</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-file-lines"></i>
+    <span>Exams</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-book"></i>
+    <span>Library</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-bullhorn"></i>
+    <span>Notices</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-indian-rupee-sign"></i>
+    <span>Fees</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-calendar-days"></i>
+    <span>Timetable</span>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-gear"></i>
+    <span>Settings</span>
+  </div>
+</div>
 
   <!-- CHATBOT -->
   <div class="chatbot-container">
@@ -36,12 +123,14 @@
     </div>
   </div>
 
-  <!-- Your other scripts -->
+
   <script src="../js/schedule.js"></script>
   <script src="../js/notices.js"></script>
   <script src="../js/theme.js"></script>
+  <script src="../js/hamburger.js"></script>
+  <script src="../js/dashboard.js"></script>
 
-  <!-- Chatbot script (keep it last so elements exist) -->
+
   <script src="../js/chatbot.js"></script>
 </body>
 </html>
