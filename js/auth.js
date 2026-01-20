@@ -1,16 +1,12 @@
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  if (email === "" || password === "") {
-    alert("Please fill all fields");
-    return;
-  }
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-  // Fake login (hackathon demo)
-  if (email.includes("@") && password.length >= 4) {
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Invalid credentials");
-  }
-}
+    if (email && password) {
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Please fill all fields");
+    }
+});

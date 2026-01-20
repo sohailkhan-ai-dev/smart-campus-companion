@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #f4f6f9;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    flex: 1;
+    background: #2d7ef7;
+    color: #fff;
+    padding: 60px;
+    text-align: center;
+}
+
+.left-panel img {
+    width: 85%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.left-panel h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.left-panel p {
+    opacity: 0.9;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 380px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-weight: 700;
+}
+
+.logo p {
+    font-size: 13px;
+    color: #777;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #2d7ef7;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: #2d7ef7;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background: #1f6be0;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.options a {
+    text-decoration: none;
+    color: #2d7ef7;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        display: none;
+    }
+}
+
+
