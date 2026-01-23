@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notices | Smart Campus</title>
+  <link rel="stylesheet" href="/css/notices.css" />
+</head>
+<body>
+
+<header class="page-header">
+  <h1>📢 Notices</h1>
+  <p>Latest updates from college</p>
+</header>
+
+<!-- HEADLINE TICKER -->
+<div class="headline-wrap">
+  <div class="headline-track" id="headlineTrack">
+    <!-- injected by JS -->
+  </div>
+</div>
+
+
+
+<main class="notice-container">
+
+  <!-- Filters -->
+  <section class="card">
+    <div class="filters">
+      <button class="filter-btn active" data-cat="ALL">All</button>
+      <button class="filter-btn" data-cat="Academic">Academic</button>
+      <button class="filter-btn" data-cat="Exam">Exam</button>
+      <button class="filter-btn" data-cat="Placement">Placement</button>
+      <button class="filter-btn" data-cat="General">General</button>
+      <button class="filter-btn" data-cat="Library">Library</button>
+    </div>
+  </section>
+
+  <!-- Pinned -->
+  <section class="card">
+    <div class="card-title">
+      <h2>📌 Pinned</h2>
+      <span class="muted small">Important notices</span>
+    </div>
+    <div id="pinnedList" class="list"></div>
+  </section>
+
+  <!-- All Notices -->
+  <section class="card">
+    <div class="card-title">
+      <h2>📰 All Notices</h2>
+      <span class="muted small" id="countText"></span>
+    </div>
+    <div id="noticeList" class="list"></div>
+  </section>
+
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal" id="noticeModal" role="dialog" aria-modal="true">
+  <div class="modal-head">
+    <div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+    </div>
+    <button class="modal-close" id="modalClose">✕</button>
+  </div>
+
+  <div class="modal-body" id="modalBody"></div>
+
+  <div class="modal-actions" id="modalActions"></div>
+</div>
+
+<script src="/js/notices.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Campus Companion - Syllabus</title>
+    <link rel="stylesheet" href="/css/syllabus.css">
+</head>
+<body>
+
+<header>
+    <h1>📘 Smart Campus Companion</h1>
+    <p>Syllabus Portal</p>
+</header>
+
+<main class="container">
+    <div class="subjects">
+        <h2>Subjects</h2>
+
+<button onclick="openPDF('computer_science.pdf')">Database Management System (DBMS)</button>
+
+<button onclick="openPDF('electronics.pdf')">Operating System (OS)</button>
+
+<button onclick="openPDF('math.pdf')">Computer Networks (CN)</button>
+
+<button onclick="openPDF('physics.pdf')">
+  Computer Organization & Architecture (COA)
+</button>
+
+<button onclick="openPDF('ic.pdf')">Indian Constitution (IC)</button>
+
+    </div>
+
+    <div class="viewer">
+    <h2>Syllabus Viewer</h2>
+
+    <iframe id="pdfViewer" title="Syllabus PDF"></iframe>
+
+    <a id="downloadBtn" class="download-btn" download>
+        ⬇ Download Syllabus
+    </a>
+</div>
+
+</main>
+
+<script src="/js/syllabus.js"></script>
+
+</body>
+</html>

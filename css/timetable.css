@@ -1,0 +1,91 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== PAGE BACKGROUND (dashboard dark) ===== */
+body {
+  min-height: 100vh;
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 20px;
+  color: #f0f6fc;
+}
+
+/* ===== CONTAINER ===== */
+.timetable-container {
+  padding: 20px;
+}
+
+/* ===== TABLE ===== */
+table {
+  width: 100%;
+  background: #161b22;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Cells */
+th, td {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px;
+  text-align: center;
+  color: #e6edf3;
+}
+
+/* Header row */
+th {
+  background: #0f141b;
+  color: #f0f6fc;
+  font-weight: 700;
+}
+
+/* Lunch row */
+.lunch {
+  background: rgba(255, 214, 102, 0.18);
+  color: #ffd866;
+  font-weight: 800;
+}
+
+/* Subject pills */
+/* Subject text – no boxes */
+.subject {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: #e6edf3;
+  font-weight: 700;
+}
+
+/* Optional: subtle subject distinction (very clean) */
+.math { color: #e6edf3; }
+.physics { color: #e6edf3; }
+.cs { color: #e6edf3; }
+.electronics { color: #e6edf3; }
+.english { color: #e6edf3; }
+
+td:hover .subject {
+  text-decoration: underline;
+  text-decoration-color: rgba(88, 166, 255, 0.6);
+}
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px;
+  }
+}

@@ -1,47 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Attendance</title>
-  <link rel="stylesheet" href="/css/attendance.css">
+  <meta charset="UTF-8" />
+  <title>My Attendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+ 
 </head>
+
 <body>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="name" id="studentName">My Attendance</div>
+        <div class="muted" id="studentMeta"></div>
+      </div>
 
-<div class="container">
-  <h2>📋 Student Attendance</h2>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="goDashboard()">← Dashboard</button>
+        <button class="btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
 
-  <table>
-    <thead>
+    <div class="filters">
+      <select id="semSelect" onchange="render()">
+        <option value="3">Semester 3</option>
+        <option value="4">Semester 4</option>
+      </select>
+
+      <select id="subjectSelect" onchange="render()">
+        <option value="ALL">All Subjects</option>
+      </select>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Overall Attendance</h3>
+        <p id="overallPct">0%</p>
+      </div>
+      <div class="card">
+        <h3>Total Classes</h3>
+        <p id="overallTotal">0</p>
+      </div>
+      <div class="card">
+        <h3>Classes Attended</h3>
+        <p id="overallAttended">0</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:18px">Subject-wise</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Total</th>
+          <th>Attended</th>
+          <th>%</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    // ✅ Attendance data (demo)
+const ATTENDANCE = {
+  S101: {
+    3: [
+      { code: "DBMS", name: "Database Management System", total: 42, attended: 36 },
+      { code: "OS", name: "Operating System", total: 40, attended: 28 },
+      { code: "CN", name: "Computer Networks", total: 38, attended: 32 },
+      { code: "COA", name: "Computer Organization & Architecture", total: 36, attended: 30 },
+      { code: "IC", name: "Indian Constitution", total: 20, attended: 18 }
+    ],
+    4: [
+      { code: "AI", name: "Artificial Intelligence", total: 30, attended: 26 },
+      { code: "SE", name: "Software Engineering", total: 34, attended: 25 },
+      { code: "CMP", name: "Compiler Design", total: 32, attended: 24 },
+      { code: "TOC", name: "Theory of Computation", total: 28, attended: 20 }
+    ]
+  },
+
+  S102: {
+    3: [
+      { code: "DBMS", name: "Database Management System", total: 42, attended: 30 },
+      { code: "OS", name: "Operating System", total: 40, attended: 35 },
+      { code: "CN", name: "Computer Networks", total: 38, attended: 20 },
+      { code: "COA", name: "Computer Organization & Architecture", total: 36, attended: 26 },
+      { code: "IC", name: "Indian Constitution", total: 20, attended: 14 }
+    ],
+    4: [
+      { code: "AI", name: "Artificial Intelligence", total: 30, attended: 22 },
+      { code: "SE", name: "Software Engineering", total: 34, attended: 30 },
+      { code: "CMP", name: "Compiler Design", total: 32, attended: 18 }
+    ]
+  },
+
+  S103: {
+    3: [
+      { code: "DBMS", name: "Database Management System", total: 42, attended: 40 },
+      { code: "OS", name: "Operating System", total: 40, attended: 39 },
+      { code: "COA", name: "Computer Organization & Architecture", total: 36, attended: 34 },
+      { code: "IC", name: "Indian Constitution", total: 20, attended: 20 }
+    ],
+    4: [
+      { code: "AI", name: "Artificial Intelligence", total: 30, attended: 28 },
+      { code: "CMP", name: "Compiler Design", total: 32, attended: 30 }
+    ]
+  }
+};
+
+     
+
+    // ✅ Get logged in student object
+    const logged = JSON.parse(localStorage.getItem("loggedInStudent"));
+
+    if (!logged) {
+      // Not logged in => go to login
+      window.location.href = "login.html";
+    }
+
+    function logout(){
+      localStorage.removeItem("loggedInStudent");
+      window.location.href = "login.html";
+    }
+
+    function goDashboard(){
+      window.location.href = "dashboard.html";
+    }
+
+    function pct(attended, total){
+      if(!total) return 0;
+      return Math.round((attended / total) * 1000) / 10; // 1 decimal
+    }
+
+    function render(){
+  const studentId = logged.id;
+
+  const sem = document.getElementById("semSelect").value;
+
+  document.getElementById("studentName").innerText =
+    `${logged.name} — Attendance`;
+
+  document.getElementById("studentMeta").innerText =
+    `Student ID: ${studentId} | Semester: ${sem}`;
+
+  const subjects =
+    (ATTENDANCE[studentId] && ATTENDANCE[studentId][sem])
+      ? ATTENDANCE[studentId][sem]
+      : [];
+
+  // Fill subject dropdown
+  const subjectSelect = document.getElementById("subjectSelect");
+  const current = subjectSelect.value || "ALL";
+
+  const options = ["ALL", ...subjects.map(s => s.code)];
+  subjectSelect.innerHTML = options.map(v =>
+    `<option value="${v}">${v === "ALL" ? "All Subjects" : v}</option>`
+  ).join("");
+
+  subjectSelect.value = options.includes(current) ? current : "ALL";
+
+  // Filter
+  const filter = subjectSelect.value;
+  const filtered =
+    filter === "ALL" ? subjects : subjects.filter(s => s.code === filter);
+
+  // Totals
+  const totalClasses = filtered.reduce((sum, s) => sum + s.total, 0);
+  const attendedClasses = filtered.reduce((sum, s) => sum + s.attended, 0);
+  const overall = pct(attendedClasses, totalClasses);
+
+  document.getElementById("overallTotal").innerText = totalClasses;
+  document.getElementById("overallAttended").innerText = attendedClasses;
+  document.getElementById("overallPct").innerText = `${overall}%`;
+
+  // Table
+  const tbody = document.getElementById("tableBody");
+  if(filtered.length === 0){
+    tbody.innerHTML =
+      `<tr><td colspan="5" class="muted">No attendance data for this semester.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(s => {
+    const p = pct(s.attended, s.total);
+    const status = p >= 75 ? "✅ Good" : "⚠ Low";
+    const cls = p >= 75 ? "good" : "low";
+
+    return `
       <tr>
-        <th>Roll No</th>
-        <th>Name</th>
-        <th>Status</th>
+        <td>${s.name} <span class="muted">(${s.code})</span></td>
+        <td>${s.total}</td>
+        <td>${s.attended}</td>
+        <td>${p}%</td>
+        <td class="${cls}">${status}</td>
       </tr>
-    </thead>
-    <tbody id="attendanceBody">
-      <tr>
-        <td>101</td>
-        <td>Sohail Khan</td>
-        <td>
-          <button class="present" onclick="markAttendance(101, 'Present')">Present</button>
-          <button class="absent" onclick="markAttendance(101, 'Absent')">Absent</button>
-        </td>
-      </tr>
+    `;
+  }).join("");
+}
 
-      <tr>
-        <td>102</td>
-        <td>Ali Ahmed</td>
-        <td>
-          <button class="present" onclick="markAttendance(102, 'Present')">Present</button>
-          <button class="absent" onclick="markAttendance(102, 'Absent')">Absent</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      
+    render();
+  </script>
 
-  <p id="message"></p>
-</div>
+<link rel="stylesheet" href="/css/attendance.css">
 
-<script src="/js/attendance.js"></script>
 </body>
 </html>

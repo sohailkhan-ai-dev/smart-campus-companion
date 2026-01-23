@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.page-header h1 {
+  font-size: 34px;
+  color: #f0f6fc;
+}
+
+.page-header p {
+  color: #9ba3b4;
+  margin-top: 6px;
+}
+
+/* Container */
+.exam-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Cards */
+.exam-card {
+  background: #161b22;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+.exam-card h2 {
+  margin-bottom: 15px;
+  color: #f0f6fc;
+}
+
+/* Upcoming exams */
+.exam-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #0f141b;
+  margin-bottom: 10px;
+}
+
+.exam-item span {
+  font-weight: 600;
+}
+
+.date, .time {
+  color: #9ba3b4;
+}
+
+/* Buttons */
+.action-btn {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+
+  background: rgba(88,166,255,0.18);
+  color: #f0f6fc;
+  border: 1px solid rgba(88,166,255,0.35);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.action-btn:hover {
+  background: rgba(88,166,255,0.30);
+  transform: translateY(-2px);
+}
+
+/* Instructions */
+.instructions {
+  padding-left: 18px;
+  color: #9ba3b4;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .exam-item {
+    grid-template-columns: 1fr;
+  }
+}

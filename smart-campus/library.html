@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library | Smart Campus</title>
+  <link rel="stylesheet" href="/css/library.css" />
+</head>
+<body>
+
+<header class="page-header">
+  <h1>📚 Library</h1>
+  <p>Issued books, search & e-resources</p>
+</header>
+
+<main class="lib-container">
+
+  <!-- ISSUED BOOKS -->
+  <section class="card">
+    <div class="card-title">
+      <h2>📌 Issued Books</h2>
+      <span class="muted" id="todayText"></span>
+    </div>
+
+    <div id="issuedList" class="list"></div>
+
+    <div class="fine-box">
+      <div>
+        <div class="muted">Total Fine</div>
+        <div class="fine-amount" id="totalFine">₹0</div>
+      </div>
+
+      <div class="muted small">
+        Fine rule: ₹<span id="finePerDayText"></span>/day after due date
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH BOOKS -->
+  <section class="card">
+    <div class="card-title">
+      <h2>🔎 Search Books</h2>
+      <span class="muted small">Demo catalog</span>
+    </div>
+
+    <div class="search-row">
+      <input id="searchInput" placeholder="Search by title / author / subject..." />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="searchResults" class="list"></div>
+  </section>
+
+  <!-- E-RESOURCES -->
+  <section class="card">
+    <div class="card-title">
+      <h2>📂 E-Resources</h2>
+      <span class="muted small">Quick access</span>
+    </div>
+
+    <div class="resources">
+      <a class="res-btn" href="syllabus.html">DBMS Syllabus</a>
+      <a class="res-btn" href="syllabus.html">OS Syllabus</a>
+      <a class="res-btn" href="syllabus.html">CN Syllabus</a>
+      <a class="res-btn" href="syllabus.html">COA Syllabus</a>
+      <a class="res-btn" href="syllabus.html">IC Syllabus</a>
+    </div>
+
+    <div class="muted small" style="margin-top:10px;">
+      Tip: You can link these to PDFs later (notes, lab manuals, past papers).
+    </div>
+  </section>
+
+</main>
+
+<script src="/js/library.js"></script>
+</body>
+</html>

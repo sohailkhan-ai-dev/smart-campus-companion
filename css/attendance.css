@@ -1,20 +1,88 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  background: #f2f4f8;
+  margin: 0;
 }
 
-.container {
-  width: 70%;
-  margin: 40px auto;
-  background: white;
+/* MAIN WRAPPER */
+.wrap {
+  max-width: 980px;
+  margin: 28px auto;
+  background: #ffffff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
 }
 
-h2 {
-  text-align: center;
+/* TOP BAR */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
+.name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* SUMMARY CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.card {
+  background: #f7f8fb;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.card p {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -22,29 +90,107 @@ table {
 
 th, td {
   padding: 12px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+  border-bottom: 1px solid #eee;
+  text-align: left;
 }
 
-button {
-  padding: 6px 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
+/* STATUS COLORS */
+.good {
+  color: #16a34a;
+  font-weight: 700;
 }
 
-.present {
-  background-color: #4CAF50;
-  color: white;
+.low {
+  color: #dc2626;
+  font-weight: 700;
 }
 
-.absent {
-  background-color: #f44336;
-  color: white;
+/* ===========================
+   THEME OVERRIDE (Dashboard-like)
+   Paste at END of attendance CSS
+   =========================== */
+
+:root{
+  --bg: #0b1220;                 /* dark background */
+  --panel: rgba(255,255,255,0.06);
+  --panel2: rgba(255,255,255,0.09);
+  --border: rgba(255,255,255,0.14);
+
+  --text: #eaf0ff;
+  --muted: rgba(234,240,255,0.75);
+
+  --accent: #2d7ef7;             /* same as dashboard icon color */
+  --accent2: #58a6ff;
 }
 
-#message {
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
+/* Body */
+body{
+
+   background: #0d1117; 
+  color: var(--text);
+}
+
+/* Main wrapper */
+.wrap{
+  background: linear-gradient(180deg, var(--panel2), rgba(255,255,255,0.03)) !important;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.55) !important;
+}
+
+/* Muted text */
+.muted{
+  color: var(--muted) !important;
+}
+
+/* Buttons */
+.btn{
+  background: rgba(45,126,247,0.22) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(45,126,247,0.35);
+}
+.btn:hover{
+  background: rgba(45,126,247,0.32) !important;
+}
+
+/* Select filters */
+select{
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+select option{
+  background: #0d1117; /* dropdown list */
+  color: #e6edf3;
+}
+
+/* Summary cards */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)) !important;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.45);
+}
+.card h3{
+  color: var(--muted) !important;
+}
+.card p{
+  color: var(--text) !important;
+}
+
+/* Table */
+table{
+  color: var(--text);
+}
+th, td{
+  border-bottom: 1px solid rgba(255,255,255,0.10) !important;
+}
+th{
+  color: var(--muted);
+}
+
+/* Status colors (keep meaning, match theme) */
+.good{
+  color: #3bff8b !important;  /* bright green */
+}
+.low{
+  color: #ff5c5c !important;  /* soft red */
 }

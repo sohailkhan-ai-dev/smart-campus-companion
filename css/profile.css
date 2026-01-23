@@ -1,0 +1,153 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== DARK DASHBOARD BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  background: #0d1117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e6edf3;
+}
+
+/* ===== CONTAINER ===== */
+.profile-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px 16px;
+}
+
+/* ===== CARD ===== */
+.profile-card {
+  width: 460px;
+  background: #161b22;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.7);
+}
+
+/* ===== HEADER ===== */
+.profile-header {
+  text-align: center;
+  padding: 30px 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(88,166,255,0.25),
+    rgba(0,0,0,0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.profile-header img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid #0d1117;
+  margin-bottom: 12px;
+}
+
+.profile-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #f0f6fc;
+}
+
+.profile-header p {
+  color: #9ba3b4;
+  margin-top: 4px;
+}
+
+/* ===== EDIT BUTTON ===== */
+.edit-btn {
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(88,166,255,0.18);
+  border: 1px solid rgba(88,166,255,0.35);
+  color: #f0f6fc;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: rgba(88,166,255,0.3);
+}
+
+/* ===== DETAILS GRID ===== */
+.profile-details {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail {
+  background: #0f141b;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.detail.full {
+  grid-column: span 2;
+}
+
+.detail span {
+  font-size: 13px;
+  color: #9ba3b4;
+  font-weight: 700;
+}
+
+.detail p {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 800;
+  outline: none;
+}
+
+/* Editable state */
+.detail p[contenteditable="true"] {
+  background: #161b22;
+  border-radius: 6px;
+  padding: 4px;
+  border: 1px dashed rgba(88,166,255,0.4);
+}
+
+/* ===== ACTIONS ===== */
+.profile-actions {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.save-btn {
+  padding: 10px 22px;
+  border-radius: 14px;
+  background: rgba(63,185,80,0.25);
+  border: 1px solid rgba(63,185,80,0.45);
+  color: #f0f6fc;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: rgba(63,185,80,0.4);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 520px) {
+  .profile-card {
+    width: 100%;
+  }
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+}
