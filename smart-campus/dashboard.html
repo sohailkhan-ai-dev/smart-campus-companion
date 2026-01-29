@@ -2,22 +2,27 @@
 <html>
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
- <script>
 
+  <!-- IMPORTANT -->
+  <base href="../">
 
-  const savedTheme = localStorage.getItem("darkMode");
-  if (savedTheme === null || savedTheme === "true") {
-    document.documentElement.classList.add("dark");
-  }
-</script>
+  <script>
+    const savedTheme = localStorage.getItem("darkMode");
+    if (savedTheme === null || savedTheme === "true") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
 
- 
   <link rel="stylesheet" href="css/dashboard.css">
- <base href="../">
-
   <link rel="stylesheet" href="css/chatbot.css">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1css/all.min.css">
 
@@ -53,12 +58,13 @@
    
 <nav class="sidebar-menu">
   <a href="attendance.html" class="sidebar-item">Attendance</a>
-  <a href="courses.html" class="sidebar-item">Courses</a>
+  <a href="syllabus.html" class="sidebar-item">syllabus</a>
   <a href="exams.html" class="sidebar-item">Exams</a>
   <a href="library.html" class="sidebar-item">Library</a>
   <a href="notices.html" class="sidebar-item">Notices</a>
   <a href="fees.html" class="sidebar-item">Fees</a>
   <a href="timetable.html" class="sidebar-item">Timetable</a>
+  <a href="campus-crowd.html" class="sidebar-item">Live Crowd</a>
   <a href="settings.html" class="sidebar-item">Settings</a>
 
   <a href="login.html" class="sidebar-item danger">Logout</a>
@@ -172,15 +178,13 @@
 
 
 
-  <script src="..js/schedule.js"></script>
-  <script src="..js/notices.js"></script>
-  <script src="..js/theme.js"></script>
-  <script src="..js/hamburger.js"></script>
-  <script src="..js/dashboard.js"></script>
+  <script src="js/schedule.js"></script>
+<script src="js/notices.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/hamburger.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/chatbot.js"></script>
 
-
-
-  <script src="..js/chatbot.js"></script>
 </body>
 
 </html>
