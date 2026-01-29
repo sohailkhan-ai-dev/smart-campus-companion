@@ -1,4 +1,4 @@
-// --- Zones you want ---
+
 const ZONES = [
   { id: "library",   name: "Library",    capacity: 120 },
   { id: "canteen",   name: "Canteen",    capacity: 80  },
@@ -104,7 +104,7 @@ function render(filterText = "") {
   });
 }
 
-// --- Init ---
+
 document.addEventListener("DOMContentLoaded", () => {
   const search = document.getElementById("search");
   const resetAll = document.getElementById("resetAll");

@@ -64,7 +64,7 @@
   </div>
 
   <script>
-    // ✅ Attendance data (demo)
+    
 const ATTENDANCE = {
   S101: {
     3: [
@@ -113,11 +113,11 @@ const ATTENDANCE = {
 
      
 
-    // ✅ Get logged in student object
+   
     const logged = JSON.parse(localStorage.getItem("loggedInStudent"));
 
     if (!logged) {
-      // Not logged in => go to login
+   
       window.location.href = "login.html";
     }
 
@@ -162,12 +162,12 @@ const ATTENDANCE = {
 
   subjectSelect.value = options.includes(current) ? current : "ALL";
 
-  // Filter
+
   const filter = subjectSelect.value;
   const filtered =
     filter === "ALL" ? subjects : subjects.filter(s => s.code === filter);
 
-  // Totals
+ 
   const totalClasses = filtered.reduce((sum, s) => sum + s.total, 0);
   const attendedClasses = filtered.reduce((sum, s) => sum + s.attended, 0);
   const overall = pct(attendedClasses, totalClasses);
@@ -176,7 +176,7 @@ const ATTENDANCE = {
   document.getElementById("overallAttended").innerText = attendedClasses;
   document.getElementById("overallPct").innerText = `${overall}%`;
 
-  // Table
+
   const tbody = document.getElementById("tableBody");
   if(filtered.length === 0){
     tbody.innerHTML =

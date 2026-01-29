@@ -1,4 +1,4 @@
-// Demo data
+
 const feesData = [
   { sem: "Semester 1", amount: 40000, paid: true },
   { sem: "Semester 2", amount: 45000, paid: false }
@@ -58,7 +58,7 @@ function payNow(index) {
   const fee = feesData[index];
   if (!fee || fee.paid) return;
 
-  // Demo payment
+  
   alert(`Redirecting to payment gateway for ${fee.sem}...`);
 
   fee.paid = true;

@@ -1,4 +1,4 @@
-// ===== MOCK STUDENT DATA (Demo only) =====
+
 const STUDENT_DATA = {
   profile: {
     name: "Sohail",
@@ -15,8 +15,7 @@ const STUDENT_DATA = {
     status: "Pending"
   },
   timetable: {
-    // OPTIONAL: If you want next-class logic to work properly,
-    // store like Monday/Tuesday arrays (same format used below).
+   
     Monday: [
       { subject: "DBMS", start: "10:00", end: "11:00", room: "C-204" },
       { subject: "COA", start: "11:00", end: "12:00", room: "C-201" }
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ✅ Toggle open/close
+
   toggle.addEventListener("click", () => {
     const isOpen = box.style.display === "block";
     box.style.display = isOpen ? "none" : "block";
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ---------- DATA HELPERS ----------
+
   function safeJSON(key, fallback) {
     try {
       const raw = localStorage.getItem(key);
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ✅ NEW: Use localStorage if available, otherwise fallback to STUDENT_DATA
+ 
   function getStudentData() {
     const profileLS = safeJSON("studentProfile", null);
     const feesLS = safeJSON("feesSummary", null);
@@ -87,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // ---------- TIME HELPERS ----------
   function parseTimeToMinutes(t) {
     if (!t) return null;
     const m = String(t).match(/(\d{1,2}):(\d{2})/);
@@ -138,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
-  // ---------- SIMPLE “INTENT” MATCHING ----------
+ 
   function normalize(text) {
     return String(text || "")
       .toLowerCase()
@@ -148,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function hasAny(q, arr) {
-    // arr can contain keywords or phrases
+    
     return arr.some((w) => q.includes(w));
   }
 
@@ -174,12 +172,12 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
 
     const noticeList = Array.isArray(notices) ? notices : [];
 
-    // greetings
+    
     if (hasAny(q, ["hi", "hello", "hey", "hii"])) {
       return `Hi ${name}! 👋\nAsk me about: profile, attendance, fees, next class, notices.`;
     }
 
-    // help
+    
     if (hasAny(q, ["help", "commands", "options", "what can you do"])) {
       return (
         "Try asking:\n" +
@@ -192,7 +190,7 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
       );
     }
 
-    // profile
+    
     if (hasAny(q, ["my profile", "profile", "about me"])) {
       return `👤 ${name}\nCourse: ${course}\nSemester: ${semester}\nSection: ${section}`;
     }
@@ -201,26 +199,26 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
     if (hasAny(q, ["semester", "sem"])) return `Your semester is: ${semester}.`;
     if (hasAny(q, ["section"])) return `Your section is: ${section}.`;
 
-    // fees
+    
     if (hasAny(q, ["fee", "fees", "due", "pending", "balance"])) {
       if (feeDueStr) return `💰 Your pending fees are: ${feeDueStr}.`;
       return "💰 I don't have fee data right now.";
     }
 
-    // attendance
+    
     if (hasAny(q, ["attendance", "present", "percent", "%"])) {
       if (overallPct != null) return `📊 Your overall attendance is: ${overallPct}%.`;
       return "📊 I don't have attendance data right now.";
     }
 
-    // next class
+    
     if (hasAny(q, ["next class", "next lecture", "what s next", "what's next", "next period"])) {
       const next = getNextClass(timetable);
       if (next) return `📅 Next class today: ${formatClass(next)}`;
       return "📅 No upcoming class found for today (or timetable not saved).";
     }
 
-    // notices
+    
     if (hasAny(q, ["notice", "notices", "announcement", "headlines"])) {
       if (!noticeList.length) return "📢 No notices available.";
       const top = noticeList.slice(0, 3).map((n, i) => {
@@ -230,7 +228,7 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
       return `📢 Latest notices:\n${top}`;
     }
 
-    // notifications
+    
     if (hasAny(q, ["enable notification", "turn on notification", "notifications on"])) {
       localStorage.setItem("notificationsEnabled", "true");
       return "✅ Notifications enabled.";
@@ -243,7 +241,7 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
     return "I can help with profile, attendance, fees, next class, and notices.\nType: help";
   }
 
-  // ---------- SIMPLE NOTIFICATIONS (tab must be open) ----------
+  
   function maybeNotify() {
     const enabled = localStorage.getItem("notificationsEnabled") === "true";
     if (!enabled) return;
@@ -255,14 +253,14 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
 
     const { fees, timetable } = getStudentData();
 
-    // Fee reminder once per session
+    
     const due = fees?.due ?? fees?.pending ?? fees?.balance ?? null;
     if (due && !sessionStorage.getItem("feeNotified")) {
       new Notification("Fee Pending 💰", { body: `You have pending fees: ₹${due}` });
       sessionStorage.setItem("feeNotified", "1");
     }
 
-    // Next class reminder 10 minutes before
+    
     const next = getNextClass(timetable);
     if (!next?.start) return;
 
@@ -281,7 +279,7 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
 
   setInterval(maybeNotify, 30000);
 
-  // ---------- UI SEND ----------
+  
   function send() {
     const q = input.value.trim();
     if (!q) return;
@@ -289,7 +287,7 @@ const semester = profile?.semester || STUDENT_DATA.profile?.semester || logged?.
     reply.textContent = "Thinking… 🤖";
     input.value = "";
 
-    // small delay to feel "smart"
+    
     setTimeout(() => {
       reply.textContent = answerOffline(q);
     }, 300);

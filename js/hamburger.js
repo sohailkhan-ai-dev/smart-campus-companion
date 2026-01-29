@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ---------- SIDEBAR ----------
+  
   function openSidebar() {
     sidebar.classList.add("open");
     overlay.classList.add("open");
@@ -31,15 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeSidebar();
   });
 
-  // Close sidebar when clicking a menu item (optional)
+  
   document.querySelectorAll(".sidebar-item").forEach((item) => {
     item.addEventListener("click", (e) => {
-      // Don't auto-close on dark toggle (feels better)
+      
       if (e.currentTarget.id !== "darkModeToggle") closeSidebar();
     });
   });
 
-  // ---------- DARK MODE ----------
+  
   function setDarkMode(isDark) {
     document.body.classList.toggle("dark", isDark);
     localStorage.setItem("darkMode", isDark ? "on" : "off");
@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load saved preference
-  const saved = localStorage.getItem("darkMode"); // "on" | "off" | null
+  
+  const saved = localStorage.getItem("darkMode"); 
   setDarkMode(saved === "on");
 
-  // Toggle on click
+  
   if (darkToggle) {
     darkToggle.addEventListener("click", () => {
       const isDarkNow = document.body.classList.contains("dark");

@@ -3,6 +3,15 @@
 
 <head>
   <title>Dashboard</title>
+ <script>
+
+  const savedTheme = localStorage.getItem("darkMode");
+  if (savedTheme === null || savedTheme === "true") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
+
+ 
   <link rel="stylesheet" href="/css/dashboard.css">
   <link rel="stylesheet" href="/css/chatbot.css">
 </head>
@@ -12,7 +21,6 @@
 
 <body>
 
-  <!-- TOP BANNER -->
   <div class="campus-banner">
     <h1>Smart <span>Campus</span></h1>
     <p>Complete Campus Management System</p>
@@ -22,15 +30,14 @@
   </div>
 
 
-  <!-- HAMBURGER BUTTON (top-left) -->
+
   <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
     ☰
   </button>
 
-  <!-- OVERLAY -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <!-- SIDEBAR -->
+  
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-top">
     <a href="profile.html" style="text-decoration:none; color:inherit;">
@@ -64,7 +71,7 @@
 
 
 
-  <!-- DASHBOARD CARDS -->
+
 
  <div class="dashboard-cards">
 
@@ -141,7 +148,7 @@
 </div>
 
 
-  <!-- CHATBOT -->
+
   <div class="chatbot-container">
     <div class="chatbot-toggle" id="chatbotToggle">🤖</div>
 

@@ -49,7 +49,7 @@ body {
 
 .footer-actions { display: flex; justify-content: center; margin-top: 10px; }
 
-/* Buttons */
+
 .btn {
   padding: 10px 14px;
   border-radius: 14px;
@@ -73,7 +73,7 @@ body {
   border: 1px solid rgba(220, 38, 38, 0.25);
 }
 
-/* Switch */
+
 .switch { position: relative; display: inline-block; width: 52px; height: 30px; }
 .switch input { display: none; }
 .slider {
@@ -94,7 +94,7 @@ body {
 .switch input:checked + .slider { background: rgba(45,126,247,0.35); }
 .switch input:checked + .slider:before { transform: translateX(22px); }
 
-/* DARK MODE (dashboard style) */
+
 body.dark {
   background: #0d1117;
   color: #e6edf3;

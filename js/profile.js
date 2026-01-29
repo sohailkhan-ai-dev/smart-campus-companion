@@ -11,7 +11,7 @@ saveBtn.addEventListener("click", () => {
 
   alert("Profile updated successfully!");
 
-  // OPTIONAL: Save to localStorage
+  
   const profileData = {};
   editableFields.forEach(p => {
     profileData[p.id] = p.innerText;
@@ -20,7 +20,7 @@ saveBtn.addEventListener("click", () => {
   localStorage.setItem("studentProfile", JSON.stringify(profileData));
 });
 
-// Load saved data (if exists)
+
 const saved = JSON.parse(localStorage.getItem("studentProfile"));
 if (saved) {
   Object.keys(saved).forEach(id => {

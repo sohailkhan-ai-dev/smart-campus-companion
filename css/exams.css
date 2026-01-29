@@ -11,7 +11,7 @@ body {
   color: #e6edf3;
 }
 
-/* Header */
+
 .page-header {
   text-align: center;
   padding: 30px 20px;
@@ -27,7 +27,7 @@ body {
   margin-top: 6px;
 }
 
-/* Container */
+
 .exam-container {
   max-width: 900px;
   margin: auto;
@@ -36,7 +36,7 @@ body {
   gap: 20px;
 }
 
-/* Cards */
+
 .exam-card {
   background: #161b22;
   padding: 22px;
@@ -50,7 +50,7 @@ body {
   color: #f0f6fc;
 }
 
-/* Upcoming exams */
+
 .exam-item {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -69,7 +69,7 @@ body {
   color: #9ba3b4;
 }
 
-/* Buttons */
+
 .action-btn {
   display: block;
   text-align: center;
@@ -90,7 +90,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Instructions */
+
 .instructions {
   padding-left: 18px;
   color: #9ba3b4;
@@ -100,7 +100,7 @@ body {
   margin-bottom: 8px;
 }
 
-/* Mobile */
+
 @media (max-width: 600px) {
   .exam-item {
     grid-template-columns: 1fr;

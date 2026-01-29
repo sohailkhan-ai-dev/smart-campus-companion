@@ -7,7 +7,7 @@ function setDarkMode(on) {
 
 function setCompact(on) {
   localStorage.setItem("compactMode", on ? "true" : "false");
-  // Optional: if you want compact UI globally, add a class:
+
   document.body.classList.toggle("compact", !!on);
 }
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const requestPermBtn = document.getElementById("requestPermBtn");
   const logoutBtn = document.getElementById("logoutBtn");
 
-  // Load saved settings
+  
   const darkOn = localStorage.getItem("darkMode") === "true";
   const compactOn = localStorage.getItem("compactMode") === "true";
   const notifOn = localStorage.getItem("notificationsEnabled") === "true";
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateNotifStatus();
 
-  // Events
+  
   darkSwitch?.addEventListener("change", () => setDarkMode(darkSwitch.checked));
   compactSwitch?.addEventListener("change", () => setCompact(compactSwitch.checked));
 
@@ -70,10 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   logoutBtn?.addEventListener("click", () => {
-    // Clear login session keys you used
+    
     localStorage.removeItem("loggedInStudent");
-    // optional: clear app data
-    // localStorage.clear();
+   
 
     window.location.href = "login.html";
   });

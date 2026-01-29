@@ -11,7 +11,7 @@ body {
   color: #e6edf3;
 }
 
-/* Header */
+
 .page-header {
   text-align: center;
   padding: 30px 18px 18px;
@@ -27,7 +27,7 @@ body {
   color: #9ba3b4;
 }
 
-/* Container */
+
 .notice-container {
   max-width: 980px;
   margin: 0 auto;
@@ -36,7 +36,7 @@ body {
   gap: 18px;
 }
 
-/* Card */
+
 .card {
   background: #161b22;
   border: 1px solid rgba(255,255,255,0.08);
@@ -61,7 +61,7 @@ body {
 .muted { color: #9ba3b4; }
 .small { font-size: 13px; }
 
-/* Filters */
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -90,13 +90,13 @@ body {
   border-color: rgba(88,166,255,0.45);
 }
 
-/* Lists */
+
 .list {
   display: grid;
   gap: 10px;
 }
 
-/* Notice item */
+
 .notice {
   background: #0f141b;
   border: 1px solid rgba(255,255,255,0.08);
@@ -172,7 +172,7 @@ body {
   line-height: 1.35;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -272,7 +272,7 @@ body {
   background: rgba(88,166,255,0.35);
 }
 
-/* Mobile */
+
 @media (max-width: 600px) {
   .filters {
     gap: 8px;
@@ -283,9 +283,7 @@ body {
   }
 }
 
-/* =========================
-   HEADLINE TICKER
-   ========================= */
+
 
 .headline-wrap {
   background: #0f141b;
@@ -313,7 +311,7 @@ body {
 }
 
 .headline-item span {
-  color: #ff7b72; /* IMPORTANT red */
+  color: #ff7b72;
   font-weight: 900;
 }
 
@@ -322,12 +320,12 @@ body {
   text-decoration-color: rgba(88,166,255,0.6);
 }
 
-/* Pause on hover */
+
 .headline-wrap:hover .headline-track {
   animation-play-state: paused;
 }
 
-/* Animation */
+
 @keyframes scrollHeadline {
   from {
     transform: translateX(100%);

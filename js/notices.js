@@ -1,7 +1,7 @@
-// "NEW" = notice within last N days
+
 const NEW_DAYS = 3;
 
-// Demo notices (Semester 3 themes)
+
 const notices = [
   {
     id: 1,
@@ -11,7 +11,7 @@ const notices = [
     important: true,
     pinned: true,
     body: "Mid-Sem examination schedule for Semester 3 has been released. Please check the exam dates, timings, and venue details carefully.",
-    attachment: "" // put a PDF link later like "assets/exam_schedule.pdf"
+    attachment: "" 
   },
   {
     id: 2,
@@ -105,13 +105,13 @@ function noticeCard(n) {
 }
 
 function render(category = "ALL") {
-  // pinned
+  
   const pinned = notices.filter(n => n.pinned);
   pinnedList.innerHTML = pinned.length
     ? pinned.map(noticeCard).join("")
     : `<div class="muted small">No pinned notices.</div>`;
 
-  // filtered list (excluding pinned duplicates)
+  
   const normal = notices.filter(n => !n.pinned);
   const filtered = category === "ALL" ? normal : normal.filter(n => n.category === category);
 
@@ -155,7 +155,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
 
-// Filter buttons
+
 const filterBtns = document.querySelectorAll(".filter-btn");
 filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -165,16 +165,14 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Initial render
+
 render("ALL");
 
-/* =========================
-   HEADLINE LOGIC
-   ========================= */
+
 
 const headlineTrack = document.getElementById("headlineTrack");
 
-// Important notices only
+
 const headlines = notices.filter(n => n.important);
 
 function renderHeadlines() {
@@ -183,7 +181,7 @@ function renderHeadlines() {
     return;
   }
 
-  // Duplicate list for smooth infinite loop
+  
   const items = [...headlines, ...headlines];
 
   headlineTrack.innerHTML = items.map(n => `

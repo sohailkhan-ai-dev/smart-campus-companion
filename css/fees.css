@@ -11,7 +11,7 @@ body {
   color: #e6edf3;
 }
 
-/* Header */
+
 .page-header {
   text-align: center;
   padding: 30px 18px 18px;
@@ -27,7 +27,7 @@ body {
   color: #9ba3b4;
 }
 
-/* Container */
+
 .fees-container {
   max-width: 980px;
   margin: 0 auto;
@@ -36,7 +36,7 @@ body {
   gap: 18px;
 }
 
-/* Card */
+
 .card {
   background: #161b22;
   border: 1px solid rgba(255,255,255,0.08);
@@ -50,7 +50,7 @@ body {
   color: #f0f6fc;
 }
 
-/* Summary */
+
 .summary {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -84,7 +84,7 @@ body {
   color: #ff7b72;
 }
 
-/* Table */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -110,7 +110,7 @@ th {
   font-weight: 800;
 }
 
-/* Buttons */
+
 .pay-btn {
   padding: 8px 14px;
   border-radius: 12px;
@@ -125,7 +125,7 @@ th {
   background: rgba(88,166,255,0.35);
 }
 
-/* Payment history */
+
 .list {
   display: grid;
   gap: 10px;
@@ -142,7 +142,7 @@ th {
   color: #f0f6fc;
 }
 
-/* Mobile */
+
 @media (max-width: 720px) {
   .summary {
     grid-template-columns: 1fr 1fr;

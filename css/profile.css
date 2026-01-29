@@ -1,4 +1,4 @@
-/* ===== RESET ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* ===== DARK DASHBOARD BACKGROUND ===== */
+
 body {
   min-height: 100vh;
   background: #0d1117;
@@ -16,7 +16,7 @@ body {
   color: #e6edf3;
 }
 
-/* ===== CONTAINER ===== */
+
 .profile-container {
   width: 100%;
   display: flex;
@@ -24,7 +24,7 @@ body {
   padding: 30px 16px;
 }
 
-/* ===== CARD ===== */
+
 .profile-card {
   width: 460px;
   background: #161b22;
@@ -34,7 +34,7 @@ body {
   box-shadow: 0 14px 35px rgba(0,0,0,0.7);
 }
 
-/* ===== HEADER ===== */
+
 .profile-header {
   text-align: center;
   padding: 30px 24px;
@@ -65,7 +65,7 @@ body {
   margin-top: 4px;
 }
 
-/* ===== EDIT BUTTON ===== */
+
 .edit-btn {
   margin-top: 14px;
   padding: 8px 16px;
@@ -80,7 +80,7 @@ body {
   background: rgba(88,166,255,0.3);
 }
 
-/* ===== DETAILS GRID ===== */
+
 .profile-details {
   padding: 24px;
   display: grid;
@@ -113,7 +113,7 @@ body {
   outline: none;
 }
 
-/* Editable state */
+
 .detail p[contenteditable="true"] {
   background: #161b22;
   border-radius: 6px;
@@ -121,7 +121,7 @@ body {
   border: 1px dashed rgba(88,166,255,0.4);
 }
 
-/* ===== ACTIONS ===== */
+
 .profile-actions {
   padding: 16px;
   text-align: center;
@@ -142,7 +142,7 @@ body {
   background: rgba(63,185,80,0.4);
 }
 
-/* ===== MOBILE ===== */
+
 @media (max-width: 520px) {
   .profile-card {
     width: 100%;

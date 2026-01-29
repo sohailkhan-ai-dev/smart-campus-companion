@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Smart Campus | Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
+  <meta charset="UTF-8" />
+  <title>Smart Campus | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 
 <div class="login-container">
 
-    <!-- LEFT SECTION -->
-    <div class="left-panel">
-        <img src="/images/IMAGE1.png" alt="Smart Campus Dashboard">
+
+  <div class="left-panel">
+    <div class="slider">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="/images/User-interface.png" alt="User Interface"></div>
+        <div class="slide"><img src="/images/notification-image.png" alt="Notifications"></div>
+        <div class="slide"><img src="/images/Live-crowd.png" alt="Live Crowd"></div>
+        <div class="slide"><img src="/images/Smart-attendance.png" alt="Smart Attendance"></div>
+      </div>
+
+      <div class="dots" id="dots"></div>
     </div>
-
-    <!-- RIGHT SECTION -->
-    <div class="right-panel">
-        <div class="login-box">
-
-            <div class="logo">
-                <h1>Smart <span>CAMPUS</span></h1>
-                <p>Complete Campus Management Software</p>
-            </div>
-
-          <form id="loginForm">
-  <div class="form-group">
-    <label>Email</label>
-    <input id="email" name="email" type="email" placeholder="Enter your email" required>
   </div>
 
-  <div class="form-group">
-    <label>Password</label>
-    <input id="password" name="password" type="password" placeholder="Enter your password" required>
-  </div>
 
-  <button type="submit" class="btn-login">Sign in</button>
-</form>
+  <div class="right-panel">
+    <div class="login-box">
 
+      <div class="logo">
+        <h1>Smart <span>CAMPUS</span></h1>
+        <p>Complete Campus Management Software</p>
+      </div>
 
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required>
         </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Sign in</button>
+      </form>
+
     </div>
+  </div>
 
 </div>
 
 <script src="/js/auth.js"></script>
+<script src="/js/slider.js"></script>
 </body>
 </html>

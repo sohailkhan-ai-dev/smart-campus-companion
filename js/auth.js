@@ -1,9 +1,9 @@
-// /js/auth.js
+
 
 const STUDENTS = [
   { id: "S101", name: "Sohail Khan", email: "sohail@gmail.com", password: "1234", semester: 3 },
-  { id: "S102", name: "Ali Ahmed",   email: "ali@gmail.com",    password: "1234", semester: 3 },
-  { id: "S103", name: "Sana",        email: "sana@gmail.com",   password: "1234", semester: 4 },
+  { id: "S102", name: "Anuj Kumar",   email: "anuj@gmail.com",    password: "1234", semester: 3 },
+  { id: "S103", name: "Nabeel Hussain",        email: "nabeel@gmail.com",   password: "1234", semester: 4 },
 ];
 
 const form = document.getElementById("loginForm");
@@ -29,7 +29,7 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  // Save logged in student object
+  
   localStorage.setItem("loggedInStudent", JSON.stringify({
     id: student.id,
     name: student.name,

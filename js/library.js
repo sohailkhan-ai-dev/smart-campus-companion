@@ -1,7 +1,7 @@
-// Fine rule
-const FINE_PER_DAY = 20; // ₹/day
 
-// Demo issued books (Semester 3 themed)
+const FINE_PER_DAY = 20; 
+
+
 const issuedBooks = [
   { title: "Database System Concepts", author: "Silberschatz", subject: "DBMS", issue: "2026-01-05", due: "2026-01-20" },
   { title: "Operating System Concepts", author: "Silberschatz", subject: "OS", issue: "2026-01-10", due: "2026-01-24" },
@@ -9,7 +9,7 @@ const issuedBooks = [
   { title: "Computer Organization and Design", author: "Patterson", subject: "COA", issue: "2026-01-15", due: "2026-01-30" },
 ];
 
-// Demo catalog for search
+
 const catalog = [
   { title: "Database System Concepts", author: "Silberschatz", subject: "DBMS" },
   { title: "Operating System Concepts", author: "Silberschatz", subject: "OS" },
@@ -85,7 +85,7 @@ function formatDate(iso) {
 
 renderIssued();
 
-// Search
+
 function doSearch() {
   const q = document.getElementById("searchInput").value.trim().toLowerCase();
   const resultsWrap = document.getElementById("searchResults");

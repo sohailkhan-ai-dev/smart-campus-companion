@@ -1,145 +1,324 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
 }
 
-body {
-    height: 100vh;
-    background: #f4f6f9;
+html, body{
+  height:100%;
 }
 
-.login-container {
-    display: flex;
-    height: 100vh;
+body{
+  background:#0d1117;
+  color:#e6edf3;
+  overflow-x:hidden;
 }
 
-/* LEFT PANEL */
-.left-panel {
-    flex: 1;
-    background: #2d7ef7;
-    color: #fff;
-    padding: 60px;
-    text-align: center;
+/* ========== LAYOUT ========== */
+.login-container{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
 }
 
-.left-panel img {
-    width: 85%;
-    max-width: 600px;
-    margin-bottom: 40px;
+/* ========== LEFT PANEL / SLIDER ========== */
+.left-panel{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+  background:#0d1117;
 }
 
-.left-panel h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
+.slider{
+  position:relative;
+  width:100%;
+  height:100%;
 }
 
-.left-panel p {
-    opacity: 0.9;
+.slides{
+  height:100%;
+  display:flex;
+  transition:transform 0.45s ease;
+  will-change:transform;
 }
 
-/* RIGHT PANEL */
-.right-panel {
-    flex: 1;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.slide{
+  min-width:100%;
+  height:100%;
 }
 
-.login-box {
-    width: 380px;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo h1 {
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.logo span {
-    font-weight: 700;
-}
-
-.logo p {
-    font-size: 13px;
-    color: #777;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: #333;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    outline: none;
-}
-
-.form-group input:focus {
-    border-color: #2d7ef7;
-}
-
-.btn-login {
-    width: 100%;
-    padding: 12px;
-    background: #2d7ef7;
-    border: none;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.btn-login:hover {
-    background: #1f6be0;
-}
-
-.options {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    font-size: 13px;
-}
-
-.options a {
-    text-decoration: none;
-    color: #2d7ef7;
-}
-
-.options label {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  cursor: pointer;
-
+/* DESKTOP — keep your look */
+.slide img{
+  width:100%;
+  height:65%;
+  display:block;
+  object-fit:cover;          /* ✅ add this */
+  object-position:center;
+  margin:0;
+  margin-top:140px;          /* ✅ only desktop */
 }
 
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .login-container {
-        flex-direction: column;
-    }
 
-    .left-panel {
-        display: none;
-    }
+
+/* overlay */
+.left-panel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+  pointer-events:none;
+  z-index:2;
 }
 
+.slider *{
+  position:relative;
+  z-index:3;
+}
 
+/* nav buttons */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:24px;
+  background:rgba(13,17,23,0.65);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#f0f6fc;
+  display:grid;
+  place-items:center;
+  backdrop-filter:blur(6px);
+  z-index:5;
+}
+
+.nav:hover{
+  background:rgba(13,17,23,0.85);
+}
+
+/* dots */
+.dots{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  z-index:6;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.20);
+  cursor:pointer;
+}
+
+.dot.active{
+  background:rgba(88,166,255,0.95);
+  border-color:rgba(88,166,255,0.95);
+}
+
+/* ========== RIGHT PANEL ========== */
+.right-panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  background:#0d1117;
+}
+
+.login-box{
+  width:100%;
+  max-width:420px;
+  background:#161b22;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 18px 45px rgba(0,0,0,0.75);
+}
+
+.logo{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.logo h1{
+  margin:0;
+  font-size:32px;
+  color:#f0f6fc;
+  font-weight:800;
+}
+
+.logo h1 span{
+  color:#58a6ff;
+}
+
+.logo p{
+  margin-top:6px;
+  color:#9ba3b4;
+  font-size:14px;
+}
+
+.form-group{
+  margin-top:16px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  color:#9ba3b4;
+  font-weight:600;
+  font-size:14px;
+}
+
+.form-group input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  outline:none;
+  background:#0d1117;
+  color:#e6edf3;
+  border:1px solid #30363d;
+}
+
+.form-group input::placeholder{
+  color:#6b7280;
+}
+
+.form-group input:focus{
+  border-color:rgba(88,166,255,0.6);
+  box-shadow:0 0 0 3px rgba(88,166,255,0.15);
+}
+
+.btn-login{
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  background:rgba(88,166,255,0.22);
+  border:1px solid rgba(88,166,255,0.45);
+  color:#f0f6fc;
+  transition:transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-login:hover{
+  background:rgba(88,166,255,0.35);
+  transform:translateY(-1px);
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* slightly tighter on laptops/tablets */
+@media (max-width: 1200px){
+  .login-container{
+    grid-template-columns: 1fr 1fr;
+  }
+  .right-panel{
+    padding:22px;
+  }
+}
+
+/* mobile/tablet: stack */
+@media (max-width: 900px){
+  .login-container{
+    grid-template-columns:1fr;
+  }
+
+  /* ✅ slider becomes a clean banner just above login */
+  .left-panel{
+    height:240px;
+  }
+
+  /* ✅ IMPORTANT: override image rules on phone */
+  .slide img{
+    height:100%;
+    margin-top:0;
+  }
+
+  /* ✅ remove gap between slider and login */
+  .right-panel{
+    padding:18px 20px 20px;
+  }
+
+  .login-box{
+    max-width:520px;
+    padding:22px;
+  }
+}
+
+/* small phones */
+@media (max-width: 600px){
+  .left-panel{
+    height:200px;
+  }
+
+  .login-box{
+    padding:18px;
+    border-radius:16px;
+  }
+
+  .logo h1{
+    font-size:26px;
+  }
+
+  .nav{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    font-size:22px;
+  }
+
+  .dots{
+    bottom:10px;
+    gap:6px;
+  }
+
+  .dot{
+    width:9px;
+    height:9px;
+  }
+}
+
+/* MOBILE: slider image sits directly above login box */
+@media (max-width: 900px){
+
+  .login-container{
+    grid-template-columns:1fr;
+  }
+
+  /* Make slider height depend on image */
+  .left-panel{
+    height:auto;
+  }
+
+  .slider,
+  .slides,
+  .slide{
+    height:auto;
+  }
+
+  /* Image becomes a banner */
+  .slide img{
+    height:290px;     /* banner height */
+    width:100%;
+    margin-top:194px;     /* REMOVE desktop gap */
+    object-fit:cover;
+    display:block;
+  }
+
+  /* Remove spacing above login */
+  .right-panel{
+    padding-top:0;
+  }
+}
